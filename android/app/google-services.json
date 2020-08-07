@@ -8,41 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:354997727389:android:9d42e273e25e8992e2a474",
-        "android_client_info": {
-          "package_name": "com.scc.silvercarcommunity"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "354997727389-q3ll1jjquo6eq5t1ab5abgp163mctn0r.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCyKYHYZbzu_DYRW-pb3RAukzQob-3qCVw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "354997727389-q3ll1jjquo6eq5t1ab5abgp163mctn0r.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:354997727389:android:3d344b067d5052fee2a474",
         "android_client_info": {
           "package_name": "com.silvercarcommunity"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "354997727389-64sv24i1ndn7ae987hiojruq5e0l73a3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.silvercarcommunity",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
         {
           "client_id": "354997727389-q3ll1jjquo6eq5t1ab5abgp163mctn0r.apps.googleusercontent.com",
           "client_type": 3
