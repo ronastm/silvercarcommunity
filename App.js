@@ -6,7 +6,8 @@ import {
   View,
   Text,
   StatusBar,
-  Button,
+  Button,  
+  Image,
 } from 'react-native';
 
 import {
@@ -88,7 +89,13 @@ export default () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
+          <View style={{flexDirection: 'row', backgroundColor: 'black', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+            <Image
+              source={require('./assets/silver-community.png')}
+              resizeMode="contain"
+              style={{ width: 214 }}
+             />
+          </View>
 
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
