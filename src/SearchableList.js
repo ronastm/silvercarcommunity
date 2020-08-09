@@ -101,7 +101,7 @@ class SearchableFlatList extends Component {
               subtitle={item.Chapter}
             />
           )}
-          keyExtractor={item => item.SCC_ID}
+          keyExtractor={item => item.ID.toString()}
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
         />
