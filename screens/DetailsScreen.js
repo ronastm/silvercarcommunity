@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
 //Import all required component
 import {
@@ -14,48 +14,67 @@ import {
 } from 'react-native';
 import Loader from '../components/Loader';
 
-export default function DetailsScreen({ route, navigation }){
-    const { itemId } = route.params;
+export class DetailsList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      data: [],
+      error: null,
+    };
+
+    this.arrayholder = [];
+  }
+
+  componentDidMount() {
+    const item = this.props.navigation.state.params;
+    console.log(item, item.Name);
+        this.setState({
+            scc_id : item.scc_id
+        }, () => {
+            this.makeRemoteRequest();
+        })
+  }
+
+  makeRemoteRequest = () => {
+    //const url = `https://randomuser.me/api/?&results=20`;
+    const url = `http://apps.airfastindonesia.com/rnim/student/ShowAllSCCList.php`;
+    this.setState({ loading: true });
+
+    fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          data: res,
+          error: res.error || null,
+          loading: false,
+        });
+        this.arrayholder = res;
+        console.log(res);
+      })
+      .catch(error => {
+        this.setState({ error, loading: false });
+      });
+  };
+
+
+  
+    render() {
+      return (
+        <View style={{ flex: 1 }}>
+             <Text>ID: </Text>
+             <Text>{item.SCC_ID} </Text>
     
-    const { name }  = route.params;
-    const { chapter }  = route.params;
-    return(
-      <>
-      <View style={{ alignItems: 'center', backgroundColor: 'black' }}>
-              <Image
-                source={require('../assets/silver-community.png')}
-                style={{
-                  width: '50%',
-                  height: 100,
-                  resizeMode: 'contain',
-                  margin: 30,
-                }}
-              />
-            </View>
-      <View style={{flex:1, alignItems:'center',justifyContent:'center'}}>
-       
-        <Text>SCC Id: {JSON.stringify(itemId)}</Text>
-        <Text>Name: {JSON.stringify(name)}</Text>
-        <Text>Chapter: {JSON.stringify(chapter)}</Text>
-        
-        <Text></Text>
-        
-        <Button 
-        title="Go to Home"
-        onPress={()=>navigation.navigate('ListScreen')}></Button>
-  
-        <Button 
-        title="Go to Profile"
-        onPress={()=>navigation.navigate('SettingsScreen')}></Button>
-  
-        <Button 
-        title="Go Back"
-        onPress={()=>navigation.goBack()}></Button>
-  
-  
-      </View>
-      </>
+        </View>
       );
-    }
   
-    
+    }
+         
+}
+  
+export default function DetailsScreen({ navigation }){
+  return (
+    <DetailsList />  );
+
+}    

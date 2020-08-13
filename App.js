@@ -11,7 +11,7 @@ import ListScreen from './screens/ListScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import DrawerNavigationRoutes from './screens/DrawerNavigationRoutes';
-import MemberDetail from './screens/MemberDetail';
+import MemberScreen from './screens/MemberScreen';
 
 const Auth = createStackNavigator({
   //Stack Navigator for Login and Sign up Screen
@@ -41,20 +41,10 @@ const Auth = createStackNavigator({
       headerTintColor: '#fff',
     },
   },
-  MemberDetail: {
-    screen: MemberDetail,
+  MemberScreen: {
+    screen: MemberScreen,
     navigationOptions: {
-      title: 'SilverCar Community',
-      headerStyle: {
-        backgroundColor: 'black',
-      },
-      headerTintColor: '#fff',
-    },
-  },
-  ListScreen: {
-    screen: ListScreen,
-    navigationOptions: {
-      title: 'SilverCar Community',
+      title: 'SILVERCAR COMMUNITY',
       headerStyle: {
         backgroundColor: 'black',
       },
