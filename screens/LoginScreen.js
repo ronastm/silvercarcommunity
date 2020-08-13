@@ -131,11 +131,11 @@ const LoginScreen = props => {
               onPress={handleSubmitPress}>
               <Text style={styles.buttonTextStyle}>LOGIN</Text>
             </TouchableOpacity>
-            {/* <Text
+            <Text
               style={styles.registerTextStyle}
               onPress={() => props.navigation.navigate('RegisterScreen')}>
               New Here ? Register
-            </Text> */}
+            </Text>
           </KeyboardAvoidingView>
         </View>
       </ScrollView>

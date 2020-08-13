@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator, Modal } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import MemberDetail from './MemberDetail';
 import { Actions as NavigationActions } from 'react-native-router-flux';
@@ -72,7 +72,21 @@ export class SearchableFlatList extends Component {
         data: newData,
       });
     };
-  
+    renderDetail = (item) => {
+      //const { itemId } = this.props.SCC_ID;
+      return (
+        <View>
+        <Modal visible={this.state.modalVisible}
+        animationType={"slide"} 
+        transparent={true}>
+        <View>
+             <Text>ID: </Text>
+             <Text>{item.SCC_ID} </Text>
+         </View>
+         </Modal>
+         </View>
+      )
+    }
     renderHeader = () => {
       return (
         <SearchBar
@@ -85,8 +99,6 @@ export class SearchableFlatList extends Component {
         />
       );
     };
-
-    
 
     render() {
       
@@ -103,11 +115,7 @@ export class SearchableFlatList extends Component {
             data={this.state.data}
             renderItem={({ item }) => (
               <ListItem onPress={() => {
-                props.navigation.navigate('DetailsScreen', {
-                  itemId: 1,
-                  chapter: 'Bekasi Raya',
-                  name: 'Wisnu',
-                });        
+                this.props.navigation.navigate('MemberDetail')
               }}
 
                 leftAvatar={{ source: { uri: item.Photo } }}
