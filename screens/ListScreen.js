@@ -25,7 +25,7 @@ export class SearchableFlatList extends Component {
     }
   
     makeRemoteRequest = () => {
-      //const url = `https://randomuser.me/api/?&results=20`;
+      
       const url = `http://apps.airfastindonesia.com/rnim/student/ShowAllSCCList.php`;
       this.setState({ loading: true });
   
