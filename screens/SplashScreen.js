@@ -17,7 +17,7 @@ const SplashScreen = props => {
       //else send to Home Screen
       AsyncStorage.getItem('user_id').then(value =>
         props.navigation.navigate(
-          value === null ? 'Auth' : 'LoginScreen'
+          value === null ? 'Auth' : 'MemberScreen'
         )
       );
     }, 5000);

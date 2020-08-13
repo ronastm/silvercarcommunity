@@ -34,7 +34,7 @@ const Auth = createStackNavigator({
   DetailsScreen: {
     screen: DetailsScreen,
     navigationOptions: {
-      title: 'SilverCar Community',
+      title: 'SILVERCAR COMMUNITY',
       headerStyle: {
         backgroundColor: 'black',
       },

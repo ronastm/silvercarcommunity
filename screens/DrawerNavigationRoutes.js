@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 
 //Import External Screens
-import HomeScreen from './ListScreen';
+import HomeScreen from './MemberScreen';
 import SettingsScreen from './SettingsScreen';
 import CustomSidebarMenu from '../components/CustomSidebarMenu';
 import NavigationDrawerHeader from '../components/NavigationDrawerHeader';
