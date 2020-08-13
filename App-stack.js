@@ -2,11 +2,12 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import LoginScreen from './screens/LoginScreen'
-import HomeScreen from './screens/HomeScreen'
-import ListScreen from './screens/ListScreen'
-import ListScreen2 from './screens/List'
-
+import LoginScreen from './screens/LoginScreenGoogle'
+//import HomeScreen from './screens/HomeScreen'
+//import ListScreen from './screens/ListScreen'
+//import ListScreen2 from './screens/List'
+//import ListFirebase from './screens/ListFirebase'
+import AsyncStorage from '@react-native-community/async-storage'
 import {
   SafeAreaView,
   StyleSheet,
@@ -27,6 +28,9 @@ import {
 } from 'react-native-google-signin';
 import auth from '@react-native-firebase/auth';
 import './firebase/FixTime';
+import AddUserScreen from './screens/AddUserScreen';
+import UserScreen from './screens/UserScreen';
+import UserDetailScreen from './screens/UserDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -95,7 +99,22 @@ export default function App() {
         { user ? (
           <>
           {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
-          <Stack.Screen name="List" component={ListScreen2} />
+          <Stack.Screen 
+        name="UserScreen" 
+        component={UserScreen} 
+        options={{ title: 'Users List' }}
+      />
+          <Stack.Screen 
+        name="AddUserScreen" 
+        component={AddUserScreen} 
+        options={{ title: 'Add User' }}
+      />
+      
+      <Stack.Screen 
+       name="UserDetailScreen" 
+       component={UserDetailScreen} 
+       options={{ title: 'User Detail' }}
+      />
         </>
         ) : (
           <>

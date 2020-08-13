@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
+import MemberDetail from './MemberDetail';
+import { Actions as NavigationActions } from 'react-native-router-flux';
+import { useNavigation } from '@react-navigation/native';
 
 export class SearchableFlatList extends Component {
+    
     constructor(props) {
       super(props);
   
@@ -81,8 +85,11 @@ export class SearchableFlatList extends Component {
         />
       );
     };
-  
+
+    
+
     render() {
+      
       if (this.state.loading) {
         return (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -95,12 +102,20 @@ export class SearchableFlatList extends Component {
           <FlatList
             data={this.state.data}
             renderItem={({ item }) => (
-              <ListItem
+              <ListItem onPress={() => {
+                props.navigation.navigate('DetailsScreen', {
+                  itemId: 1,
+                  chapter: 'Bekasi Raya',
+                  name: 'Wisnu',
+                });        
+              }}
+
                 leftAvatar={{ source: { uri: item.Photo } }}
                 title={`${item.SCC_ID} ${item.Name}`}
                 subtitle={item.Chapter}
               />
             )}
+            // renderRow={this.renderRow.bind(this)}
             keyExtractor={item => item.ID.toString()}
             ItemSeparatorComponent={this.renderSeparator}
             ListHeaderComponent={this.renderHeader}
@@ -108,7 +123,7 @@ export class SearchableFlatList extends Component {
         </View>
       );
     }
-  }
+} 
   
 export default function ListScreen({navigation}) {
     return (
